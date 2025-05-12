@@ -1,39 +1,86 @@
 "use client"
 import { motion } from 'motion/react';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Button } from '@/components/ui/button';
 export default function Navbar() {
 
-    const [isSrolled,setIsScrolled]=useState(false)
+    const [isSrolled, setIsScrolled] = useState(false)
     const [isMenuOpen, setIsMenuOpen] = useState(false)
-    const NavItems= [
-        {name:"Home", href:"#" },
-        {name:"About", href:"#about" },
-        {name:"Skills", href:"#skills" },
-        {name:"Projects", href:"#projects" },
-        {name:"Education", href:"#education" },
-        {name:"Contact", href:"#contact" },
+    const NavItems = [
+        { name: "Home", href: "#" },
+        { name: "About", href: "#about" },
+        { name: "Skills", href: "#skills" },
+        { name: "Projects", href: "#projects" },
+        { name: "Education", href: "#education" },
+        { name: "Contact", href: "#contact" },
     ]
 
-  return (
-    <>
-<motion.header>
-    <div className="container mx-auto px-4">
-    <nav className='hidden md:flex items-center space-x-1'>
-{
-    NavItems.map((item, index)=>(
-        <div  key={index}>
+    const people = [
+        {
+            id: 1,
+            name: "Md Rabiul Hasan",
+            designation: "MERN Stack Developer",
+            image: "/rabiul.jpg"
 
-            <Button>
-                {item.name}
-            </Button>
-        </div>
-    ))
-}
-    </nav>
-    </div>
-</motion.header>
+        }
+    ]
 
-    </>
-  )
+    useEffect(() => {
+        const handleScroll = () => {
+            if (window.scrollY > 50) {
+                setIsScrolled(true)
+
+            } else {
+                setIsScrolled(false)
+
+            }
+        }
+        window.addEventListener("scroll",handleScroll)
+        return()=>window.removeEventListener('scroll',handleScroll)
+
+    }, [])
+
+    const scrollToSection = (href:string) => { 
+        setIsMenuOpen(false)
+        if(href==="#"){
+            window.scrollTo({top:0, behavior:'smooth'})
+            return
+        }
+        const element=document.querySelector(href)
+        if (element) {
+            element.scrollIntoView({behavior:"smooth"})
+        } 
+     }
+    return (
+        <>
+            <motion.header
+            initial={{y:-100}}
+            animate={{y:0}}
+            transition={{duration:0.5}}
+            className={`
+                fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+                    isSrolled? "bg-background/80 backdrop-blur-md shadow-md ":"bg-transparent"
+                } `}
+            >
+                <div className="container mx-auto px-4">
+                    <nav className='hidden md:flex items-center space-x-1'>
+                        {
+                            NavItems.map((item, index) => (
+                                <div key={index}>
+
+                                    <Button variant={"ghost"} onClick={()=>{
+                                        scrollToSection(item.href)
+                                    }} className='text-sm font-medium'>
+                                        
+                                        {item.name}
+                                    </Button>
+                                </div>
+                            ))
+                        }
+                    </nav>
+                </div>
+            </motion.header>
+
+        </>
+    )
 }
