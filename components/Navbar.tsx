@@ -2,6 +2,8 @@
 import { motion } from 'motion/react';
 import { useEffect, useState } from 'react';
 import { Button } from '@/components/ui/button';
+import { Menu } from 'lucide-react';
+import AnimatedTooltip from './ui/animated-tooltip';
 export default function Navbar() {
 
     const [isSrolled, setIsScrolled] = useState(false)
@@ -63,6 +65,19 @@ export default function Navbar() {
                 } `}
             >
                 <div className="container mx-auto px-4">
+                    <div className="flex items-center justify-between h-16 md:h-20">
+                    
+                    <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.2 }}
+              className="flex items-center"
+            >
+              <AnimatedTooltip items={people} />
+              <span className="font-bold text-xl ml-2">
+                Rabiul<span className="text-primary">.</span>
+              </span>
+            </motion.div>
                     <nav className='hidden md:flex items-center space-x-1'>
                         {
                             NavItems.map((item, index) => (
@@ -78,6 +93,14 @@ export default function Navbar() {
                             ))
                         }
                     </nav>
+                    <div className="flex items-center md:hidden">
+              {/* <ModeToggle /> */}
+              <Button variant="ghost" size="icon" onClick={() => setIsMenuOpen(!isMenuOpen)} className="ml-2">
+                <Menu className="h-6 w-6" />
+              </Button>
+            </div>
+
+                    </div>
                 </div>
             </motion.header>
 
