@@ -1,12 +1,12 @@
 "use client"
-import { ArrowDown, Github, Linkedin, LinkedinIcon } from "lucide-react";
+import { ArrowDown, Github, LinkedinIcon } from "lucide-react";
+import Image from "next/image";
+import { useRef } from "react";
 import BackgroundBeams from "./animations/background-beams";
 import { AnimatedText, FadeUp, MouseRotate3D, ScaleOnHover } from "./animations/motion-animations";
-import { Button } from "./ui/button";
-import { useRef } from "react";
-import { CardBody, CardContainer, CardItem } from "./ui/3d-card";
-import Image from "next/image";
 import { WavyBackground } from "./animations/wavy-background";
+import { CardBody, CardContainer, CardItem } from "./ui/3d-card";
+import { Button } from "./ui/button";
 
 export default function Hero() {
 

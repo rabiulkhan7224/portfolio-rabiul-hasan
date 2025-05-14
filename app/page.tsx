@@ -1,12 +1,10 @@
 import Hero from "@/components/hero";
-import HeroSection from "@/components/hero-section";
 import About from "./../components/about";
 
 export default function Home() {
   return (
     <>
    <main className="min-h-screen bg-background">
-    {/* <HeroSection /> */}
     <Hero />
     <About />
     {/* <Skills /> */}
