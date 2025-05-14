@@ -103,3 +103,62 @@ export const MouseRotate3D = ({
     </motion.div>
   )
 }
+// Text animation that reveals one character at a time
+export const AnimatedText = ({
+  text,
+  className,
+  once = true,
+  delay = 0,
+}: {
+  text: string
+  className?: string
+  once?: boolean
+  delay?: number
+}) => {
+  const ref = useRef<HTMLDivElement>(null)
+  const isInView = useInView(ref, { once, amount: 0.5 })
+
+  const words = text.split(" ")
+
+  const container = {
+    hidden: { opacity: 0 },
+    visible: (i = 1) => ({
+      opacity: 1,
+      transition: { staggerChildren: 0.03, delayChildren: delay },
+    }),
+  }
+
+  const child = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        type: "spring",
+        damping: 12,
+        stiffness: 100,
+      },
+    },
+  }
+
+  return (
+    <motion.div
+      ref={ref}
+      className={cn("flex flex-wrap", className)}
+      variants={container}
+      initial="hidden"
+      animate={isInView ? "visible" : "hidden"}
+    >
+      {words.map((word, index) => (
+        <motion.span key={index} className="mr-1 inline-block">
+          {Array.from(word).map((letter, letterIndex) => (
+            <motion.span key={letterIndex} variants={child} className="inline-block">
+              {letter}
+            </motion.span>
+          ))}
+          {index !== words.length - 1 && <span>&nbsp;</span>}
+        </motion.span>
+      ))}
+    </motion.div>
+  )
+}

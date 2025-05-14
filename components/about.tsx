@@ -6,8 +6,10 @@ import { Mail, MapPin, Phone } from 'lucide-react';
 import { Spotlight } from './animations/spotlight';
 import { MovingBorder } from './animations/moving-border';
 import Image from 'next/image';
+import BackgroundBeams from './animations/background-beams';
+import { PointerHighlight } from './ui/pointer-highlight';
 export default function About() {
- const container = {
+  const container = {
     hidden: { opacity: 0 },
     show: {
       opacity: 1,
@@ -21,7 +23,8 @@ export default function About() {
     show: { opacity: 1, y: 0, transition: { duration: 0.8 } },
   }
   return (
-    <section id="about" className="py-20 bg-muted/30">
+    <section id="about" className="py-20 bg-muted/30 ">
+
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -64,12 +67,18 @@ export default function About() {
               MERN Stack Developer
             </motion.h3>
 
-            <motion.p variants={item} className="text-muted-foreground mb-6">
-              I'm a MERN Stack Developer specializing in React.js, Node.js, Express.js and MongoDB, with foundational
-              knowledge of TypeScript for building type-safe applications. I have proven ability to develop full-stack
+            <motion.div variants={item} className="text-muted-foreground mb-6 tracking-tight">
+              I'm a MERN Stack Developer specializing in<PointerHighlight rectangleClassName="bg-green-100 dark:bg-green-900 border-green-300 dark:border-green-700 leading-loose"pointerClassName="text-green-500 h-3 w-3"containerClassName="inline-block"><span className="relative z-10">React.js, Node.js, Express.js and MongoDB,</span></PointerHighlight> with foundational
+              knowledge of <PointerHighlight
+            rectangleClassName="bg-blue-100 dark:bg-blue-900 border-blue-300 dark:border-blue-700 leading-loose"
+            pointerClassName="text-blue-500 h-3 w-3"
+            containerClassName="inline-block mx-1"
+          >
+            <span className="relative z-10">TypeScript </span>
+          </PointerHighlight> for building type-safe applications. I have proven ability to develop full-stack
               solutions with secure authentication, RESTful APIs, and optimized performance. I'm passionate about
               writing clean, maintainable code and collaborating in agile teams.
-            </motion.p>
+            </motion.div>
 
             <motion.div variants={item} className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
               <Card className="overflow-hidden border-none shadow-lg hover:shadow-xl transition-all duration-300">
