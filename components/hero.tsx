@@ -6,6 +6,7 @@ import { Button } from "./ui/button";
 import { useRef } from "react";
 import { CardBody, CardContainer, CardItem } from "./ui/3d-card";
 import Image from "next/image";
+import { WavyBackground } from "./animations/wavy-background";
 
 export default function Hero() {
 
@@ -42,14 +43,14 @@ export default function Hero() {
               building type-safe applications.
             </FadeUp>
 
-            <FadeUp delay={1.4} className="flex flex-wrap gap-4">
-              {/* <WavyBackground className="p-2 rounded-lg"> */}
+            <FadeUp delay={1.4} className="flex flex-wrap items-center gap-4">
+              <WavyBackground className="p-2 rounded-lg">
                 <ScaleOnHover>
                   <Button size="lg" className="gap-2 relative z-10">
                     Download CV
                   </Button>
                 </ScaleOnHover>
-              {/* </WavyBackground> */}
+              </WavyBackground>
 
               <ScaleOnHover>
                 <Button size="lg" variant="outline" className="gap-2" onClick={scrollToAbout}>
