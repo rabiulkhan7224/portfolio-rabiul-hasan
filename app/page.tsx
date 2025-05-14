@@ -1,5 +1,6 @@
 import Hero from "@/components/hero";
 import HeroSection from "@/components/hero-section";
+import About from "./../components/about";
 
 export default function Home() {
   return (
@@ -7,6 +8,13 @@ export default function Home() {
    <main className="min-h-screen bg-background">
     {/* <HeroSection /> */}
     <Hero />
+    <About />
+    {/* <Skills /> */}
+    {/* <Projects /> */}
+    {/* <Contact /> */}
+    {/* <Footer /> */}
+    {/* <BackgroundBeams className="absolute inset-0 z-0" /> */}
+    
    </main>
     
     </>

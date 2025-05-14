@@ -15,7 +15,7 @@ export default function Hero() {
     aboutRef.current?.scrollIntoView({ behavior: "smooth" })
   }
   return (
-    <section className="relative h-screen flex items-center justify-center overflow-hidden">
+    <section className="relative h-screen  flex items-center justify-center overflow-hidden">
       {/* todo backgroundbeans  */}
       <BackgroundBeams className="absolute inset-0" />
       <div className="container mx-auto px-4 z-10">

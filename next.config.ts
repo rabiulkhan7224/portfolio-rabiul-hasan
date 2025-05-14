@@ -19,6 +19,7 @@ const nextConfig: NextConfig = {
         pathname: "/dg4jhba5c/image/upload/v1697032022/**",
       },
 ]},
+ 
 };
 
 export default nextConfig;
