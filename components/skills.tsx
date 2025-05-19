@@ -78,12 +78,15 @@ const SkillsWithLogos = () => {
       name: "Frontend",
       icon: <Layout className="h-6 w-6" />,
       skills: [
+        { name: "React.js", logo: "/react.webp" },
+        { name: "TypeScript", logo: "/icons8-typescript-144.png" },
+        { name: "Tailwind CSS", logo: "https://img.icons8.com/?size=100&id=CIAZz2CYc6Kc&format=png&color=000000" },
+        { name: "JavaScript", logo: "https://img.icons8.com/?size=100&id=108784&format=png&color=000000" },
+
         { name: "HTML5", logo: "https://img.icons8.com/?size=100&id=20909&format=png&color=000000" },
         { name: "CSS3", logo: "https://img.icons8.com/?size=100&id=21278&format=png&color=000000" },
-        { name: "JavaScript", logo: "https://img.icons8.com/?size=100&id=108784&format=png&color=000000" },
-        { name: "TypeScript", logo: "/icons8-typescript-144.png" },
-        { name: "React.js", logo: "/react.webp" },
-        { name: "Tailwind CSS", logo: "https://img.icons8.com/?size=100&id=CIAZz2CYc6Kc&format=png&color=000000" },
+
+
       ],
     },
     {
@@ -92,6 +95,7 @@ const SkillsWithLogos = () => {
       skills: [
         { name: "Node.js", logo: "https://img.icons8.com/?size=100&id=54087&format=png&color=000000" },
         { name: "Express.js", logo: "https://img.icons8.com/?size=100&id=SDVmtZ6VBGXt&format=png&color=000000" },
+        { name: "TypeScript", logo: "/icons8-typescript-144.png" },
         { name: "RESTful APIs", logo: "/rest-api.jpg" },
         { name: "JWT", logo: "https://img.icons8.com/?size=100&id=rHpveptSuwDz&format=png&color=000000" },
         { name: "mongoose", logo: "https://img.icons8.com/?size=100&id=gKfcEStXI1Hm&format=png&color=000000" },
@@ -132,7 +136,7 @@ const SkillsWithLogos = () => {
           <div className="mx-auto h-1 w-20 bg-primary"></div>
         </FadeUp>
 
-        <div className="space-y-12">
+        <div className="space-y-4">
           {skillCategories.map((category, categoryIndex) => (
             <LazyComponent key={categoryIndex}>
               <SkillCategory category={category} index={categoryIndex} />

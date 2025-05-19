@@ -3,6 +3,8 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
+import { Suspense } from "react";
+import Loading from "./Loading";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -16,8 +18,26 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Md Rabiul Hasan | MERN Stack Developer",
+  icons:"/logo.webp",
   description:
     "Portfolio of Md Rabiul Hasan, a MERN Stack Developer specializing in React.js, Node.js, Express.js and MongoDB.",
+  // Add more metadata for better SEO
+  keywords: "MERN stack, developer, React.js, Node.js, Express.js, MongoDB, portfolio, web development",
+  authors: [{ name: "Md Rabiul Hasan" }],
+  // Add Open Graph metadata for better social sharing
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: "https://md-rabiul-hasan.vercel.app",
+    title: "Md Rabiul Hasan | MERN Stack Developer",
+    description:
+      "Portfolio of Md Rabiul Hasan, a MERN Stack Developer specializing in React.js, Node.js, Express.js and MongoDB.",
+    siteName: "Md Rabiul Hasan Portfolio",
+  },
+  
+  // Add  Card metadata for better Twitter sharing
+  
+ 
 }
 
 export default function RootLayout({
@@ -32,7 +52,7 @@ export default function RootLayout({
       >
          <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
         <Navbar/>
-        {children}
+        <Suspense fallback={<Loading />}>{children}</Suspense>
         </ThemeProvider>
       </body>
     </html>
