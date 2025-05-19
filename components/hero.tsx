@@ -58,7 +58,7 @@ export default function Hero() {
                 </Button>
               </ScaleOnHover>
             </FadeUp>
-
+    
             <FadeUp delay={1.7} className="flex gap-4 mt-8">
               <ScaleOnHover>
                 <a

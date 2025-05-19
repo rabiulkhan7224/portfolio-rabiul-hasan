@@ -1,5 +1,6 @@
+"use client"
 import { cn } from "@/lib/utils";
-import { motion, useInView } from "motion/react";
+import { motion, useInView } from "motion/react";   
 import { MouseEvent, ReactNode, useRef } from "react"
 
 export const FadeUp = ({ children, className, delay = 0, duration = 0.5, once = true, }: {
@@ -159,6 +160,76 @@ export const AnimatedText = ({
           {index !== words.length - 1 && <span>&nbsp;</span>}
         </motion.span>
       ))}
+    </motion.div>
+  )
+}
+// Staggered children animation
+export const StaggerContainer = ({
+  children,
+  className,
+  delay = 0,
+  staggerChildren = 0.1,
+  once = true,
+}: {
+  children: React.ReactNode
+  className?: string
+  delay?: number
+  staggerChildren?: number
+  once?: boolean
+}) => {
+  const ref = useRef<HTMLDivElement>(null)
+  const isInView = useInView(ref, { once, amount: 0.2 })
+
+  const variants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren,
+        delayChildren: delay,
+      },
+    },
+  }
+
+  return (
+    <motion.div
+      ref={ref}
+      initial="hidden"
+      animate={isInView ? "visible" : "hidden"}
+      variants={variants}
+      className={className}
+    >
+      {children}
+    </motion.div>
+  )
+}
+
+
+// Staggered item for use with StaggerContainer
+export const StaggerItem = ({
+  children,
+  className,
+  index = 0,
+}: {
+  children: React.ReactNode
+  className?: string
+  index?: number
+}) => {
+  const variants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.5,
+        ease: "easeOut",
+      },
+    },
+  }
+
+  return (
+    <motion.div variants={variants} className={className}>
+      {children}
     </motion.div>
   )
 }

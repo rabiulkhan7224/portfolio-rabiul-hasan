@@ -12,14 +12,33 @@ const nextConfig: NextConfig = {
         pathname: "/dg4jhba5c/image/upload/**",
   },
 
-
+// https://img.icons8.com/?size=100&id=108784&format=png&color=000000
+     
       {
         protocol: "https",
-        hostname: "res.cloudinary.com",
+        hostname: "img.icons8.com",
         port: "",
-        pathname: "/dg4jhba5c/image/upload/v1697032022/**",
+        pathname: "/**",
       },
-]},
+      {
+        protocol: "https",
+        hostname: "placehold.co",
+        port: "",
+        pathname: "/**",
+      },
+      {
+        protocol: "https",
+        hostname: "cdn-icons-png.flaticon.com",
+        port: "",
+        pathname: "/**",
+      },
+    ],
+  },
+
+ 
+      
+
+ 
 eslint: {
   // Only run ESLint on the "pages" and "components" directories during production builds (next build)
   ignoreDuringBuilds: true, // Ignore ESLint errors during production builds

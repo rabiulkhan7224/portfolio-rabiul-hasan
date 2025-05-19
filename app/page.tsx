@@ -1,5 +1,6 @@
 import Hero from "@/components/hero";
 import About from "./../components/about";
+import SkillsWithLogos from "@/components/skills";
 
 export default function Home() {
   return (
@@ -7,7 +8,7 @@ export default function Home() {
    <main className="min-h-screen bg-background">
     <Hero />
     <About />
-    {/* <Skills /> */}
+    <SkillsWithLogos />
     {/* <Projects /> */}
     {/* <Contact /> */}
     {/* <Footer /> */}
