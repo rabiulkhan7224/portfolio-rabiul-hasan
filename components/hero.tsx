@@ -7,6 +7,7 @@ import { AnimatedText, FadeUp, MouseRotate3D, ScaleOnHover } from "./animations/
 import { WavyBackground } from "./animations/wavy-background";
 import { CardBody, CardContainer, CardItem } from "./ui/3d-card";
 import { Button } from "./ui/button";
+import Link from "next/link";
 
 export default function Hero() {
 
@@ -46,9 +47,20 @@ export default function Hero() {
             <FadeUp delay={1.4} className="flex flex-wrap items-center gap-4">
               <WavyBackground className="p-2 rounded-lg">
                 <ScaleOnHover>
-                  <Button size="lg" className="gap-2 relative z-10">
+                  <Link
+                      href="https://drive.google.com/file/d/1TwQ-9Y1lyrx9ikhf1sIvHSj3oLZh_m2Q/view?usp=drive_link"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      download
+                      className="flex items-center gap-2">
+                    <Button size="lg" className="gap-2 relative z-10">
+                  
+                    
+                    
                     Download CV
                   </Button>
+                      </Link>
+                 
                 </ScaleOnHover>
               </WavyBackground>
 
@@ -61,24 +73,24 @@ export default function Hero() {
     
             <FadeUp delay={1.7} className="flex gap-4 mt-8">
               <ScaleOnHover>
-                <a
+                <Link
                   href="https://github.com/rabiulkhan7224"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-muted-foreground hover:text-primary transition-colors"
                 >
                   <Github className="h-6 w-6" />
-                </a>
+                </Link>
               </ScaleOnHover>
               <ScaleOnHover>
-                <a
-                  href="https://linkedin.com/in/md-rabiul-hasan7224"
+                <Link
+                  href="https://www.linkedin.com/in/md-rabiul-hasan7224"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-muted-foreground hover:text-primary transition-colors"
                 >
                   <LinkedinIcon className="h-6 w-6" />
-                </a>
+                </Link>
               </ScaleOnHover>
             </FadeUp>
           </FadeUp>

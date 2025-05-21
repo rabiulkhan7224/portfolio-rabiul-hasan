@@ -10,6 +10,7 @@ import { ImageWithSkeleton } from "@/components/ui/image-with-skeleton"
 import BackgroundBeams from './animations/background-beams';
 import { LazyComponent } from './lazy-component';
 import { motion } from 'motion/react';
+import Link from "next/link"
 
 export default function Projects() {
   const projects = [
@@ -24,9 +25,9 @@ export default function Projects() {
         "Payment integration for camp fees and donations",
       ],
       technologies: ["React.js", "Node.js", "Express.js", "MongoDB", "Tailwind CSS"],
-      liveLink: "#",
-      clientRepo: "#",
-      serverRepo: "#",
+      liveLink: "https://medicamps.netlify.app",
+      clientRepo: "https://github.com/rabiulkhan7224/medicamps-client",
+      serverRepo: "https://github.com/rabiulkhan7224/medicamps-server",
     },
     {
       title: "Car Rental System",
@@ -39,9 +40,9 @@ export default function Projects() {
         "Real-time availability and pricing updates",
       ],
       technologies: ["React.js", "Node.js", "Express.js", "MongoDB", "Tailwind CSS"],
-      liveLink: "#",
-      clientRepo: "#",
-      serverRepo: "#",
+      liveLink: "https://car-rent-a11-15.netlify.app",
+      clientRepo: "https://github.com/rabiulkhan7224/car-rent",
+      serverRepo: "https://github.com/rabiulkhan7224/car-rent-server",
     },
   ]
 
@@ -130,22 +131,22 @@ export default function Projects() {
 
                     <CardFooter className="flex flex-wrap gap-3">
                       <Button asChild size="sm" variant="default" className="gap-2">
-                        <a href={project.liveLink} target="_blank" rel="noopener noreferrer">
+                        <Link href={project.liveLink} target="_blank" rel="noopener noreferrer">
                           <ExternalLink className="h-4 w-4" />
                           Live Demo
-                        </a>
+                        </Link>
                       </Button>
                       <Button asChild size="sm" variant="outline" className="gap-2">
-                        <a href={project.clientRepo} target="_blank" rel="noopener noreferrer">
+                        <Link href={project.clientRepo} target="_blank" rel="noopener noreferrer">
                           <Github className="h-4 w-4" />
                           Client Repo
-                        </a>
+                        </Link>
                       </Button>
                       <Button asChild size="sm" variant="outline" className="gap-2">
-                        <a href={project.serverRepo} target="_blank" rel="noopener noreferrer">
+                        <Link href={project.serverRepo} target="_blank" rel="noopener noreferrer">
                           <Github className="h-4 w-4" />
                           Server Repo
-                        </a>
+                        </Link>
                       </Button>
                     </CardFooter>
             
