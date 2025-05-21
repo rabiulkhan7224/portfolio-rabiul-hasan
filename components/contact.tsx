@@ -65,7 +65,7 @@ export default function Contact() {
 
           <FadeUp delay={0.3}>
             <MovingBorder className="p-[1px] rounded-lg">
-              <Card className="overflow-hidden border-none shadow-lg bg-background/80 backdrop-blur-sm">
+              <Card className="overflow-hidden border-none shadow-lg bg-background/95 backdrop-blur-xl">
                 <CardContent className="p-6">
                   <h3 className="text-2xl font-bold mb-6">Send a Message</h3>
                   <ContactForm />

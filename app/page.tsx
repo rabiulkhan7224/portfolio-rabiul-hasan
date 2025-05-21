@@ -3,6 +3,8 @@ import About from "./../components/about";
 import SkillsWithLogos from "@/components/skills";
 import Projects from "@/components/projects";
 import Contact from "@/components/contact";
+import Footer from "@/components/footer";
+import BackgroundBeams from "@/components/animations/background-beams";
 
 export default function Home() {
   return (
@@ -13,8 +15,8 @@ export default function Home() {
     <SkillsWithLogos />
     <Projects />
     <Contact />
-    {/* <Footer /> */}
-    {/* <BackgroundBeams className="absolute inset-0 z-0" /> */}
+    <Footer />
+    <BackgroundBeams className="absolute inset-0 z-0" />
     
    </main>
     
