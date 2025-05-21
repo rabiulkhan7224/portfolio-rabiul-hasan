@@ -5,6 +5,7 @@ import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Suspense } from "react";
 import Loading from "./Loading";
+import { Toaster } from "sonner";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -18,7 +19,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Md Rabiul Hasan | MERN Stack Developer",
-  icons:"/logo.webp",
+  
   description:
     "Portfolio of Md Rabiul Hasan, a MERN Stack Developer specializing in React.js, Node.js, Express.js and MongoDB.",
   // Add more metadata for better SEO
@@ -53,6 +54,7 @@ export default function RootLayout({
          <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
         <Navbar/>
         <Suspense fallback={<Loading />}>{children}</Suspense>
+        <Toaster />
         </ThemeProvider>
       </body>
     </html>
