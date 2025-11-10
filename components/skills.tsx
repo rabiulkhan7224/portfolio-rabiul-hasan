@@ -60,7 +60,7 @@ const SkillCategory = memo(function SkillCategory({
           </div>
 
           <StaggerContainer
-            className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6"
+            className="grid grid-cols-2 gap-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6"
             staggerChildren={0.05}
           >
             {category.skills.map((skill, skillIndex) => (
@@ -78,9 +78,14 @@ const SkillsWithLogos = () => {
       name: "Frontend",
       icon: <Layout className="h-6 w-6" />,
       skills: [
+        { name: "Next.js", logo: "https://img.icons8.com/fluency/96/nextjs.png" },
         { name: "React.js", logo: "/react.webp" },
         { name: "TypeScript", logo: "/icons8-typescript-144.png" },
+        { name: "Redux", logo: "https://img.icons8.com/external-tal-revivo-color-tal-revivo/96/external-redux-an-open-source-javascript-library-for-managing-application-state-logo-color-tal-revivo.png" },
         { name: "Tailwind CSS", logo: "https://img.icons8.com/?size=100&id=CIAZz2CYc6Kc&format=png&color=000000" },
+        {name: "Shadcn-ui", logo: "/shadcn-ui.png" },
+        { name: "Framer Motion", logo: "/motion.svg" },
+        {name: 'nextAuth', logo: '/nextAuth.png' },
         { name: "JavaScript", logo: "https://img.icons8.com/?size=100&id=108784&format=png&color=000000" },
 
         { name: "HTML5", logo: "https://img.icons8.com/?size=100&id=20909&format=png&color=000000" },
@@ -97,6 +102,7 @@ const SkillsWithLogos = () => {
         { name: "Express.js", logo: "https://img.icons8.com/?size=100&id=SDVmtZ6VBGXt&format=png&color=000000" },
         { name: "TypeScript", logo: "/icons8-typescript-144.png" },
         { name: "RESTful APIs", logo: "/rest-api.jpg" },
+        {name: "Stripe", logo: "/stripe.svg" },
         { name: "JWT", logo: "https://img.icons8.com/?size=100&id=rHpveptSuwDz&format=png&color=000000" },
         { name: "mongoose", logo: "https://img.icons8.com/?size=100&id=gKfcEStXI1Hm&format=png&color=000000" },
       ],
@@ -117,6 +123,8 @@ const SkillsWithLogos = () => {
         { name: "GitHub", logo: "https://img.icons8.com/?size=100&id=efFfwotdkiU5&format=png&color=000000" },
         { name: "Postman", logo: "https://img.icons8.com/?size=100&id=EPbEfEa7o8CB&format=png&color=000000" },
         { name: "Vercel", logo: "/vercel-logotype-dark.png" },
+        { name: "Netlify", logo: "/netlify.svg" },
+        {name : "google cloud", logo: "/google-cloud.jpeg" },
       ],
     },
   ]

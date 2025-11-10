@@ -8,6 +8,7 @@ import { MovingBorder } from './animations/moving-border';
 import Image from 'next/image';
 import BackgroundBeams from './animations/background-beams';
 import { PointerHighlight } from './ui/pointer-highlight';
+import GithubStat from './githubStat';
 export default function About() {
   const container = {
     hidden: { opacity: 0 },
@@ -81,12 +82,12 @@ export default function About() {
             </motion.div>
 
             <motion.div variants={item} className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
-              <Card className="overflow-hidden border-none shadow-lg hover:shadow-xl transition-all duration-300">
+              {/* <Card className="overflow-hidden border-none shadow-lg hover:shadow-xl transition-all duration-300">
                 <CardContent className="p-4 flex items-center gap-3">
                   <MapPin className="text-primary h-5 w-5" />
                   <span>Comilla, Bangladesh</span>
                 </CardContent>
-              </Card>
+              </Card> */}
 
               <Card className="overflow-hidden border-none shadow-lg hover:shadow-xl transition-all duration-300">
                 <CardContent className="p-4 flex items-center gap-3">
@@ -102,6 +103,8 @@ export default function About() {
                 </CardContent>
               </Card>
             </motion.div>
+
+            <GithubStat />
 
             <motion.div variants={item} className="flex flex-wrap gap-2">
               <Badge className="px-3 py-1 hover:bg-primary/20 transition-colors duration-300">Problem-solving</Badge>
