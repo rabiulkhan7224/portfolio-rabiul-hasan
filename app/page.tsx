@@ -5,6 +5,7 @@ import Projects from "@/components/projects";
 import Contact from "@/components/contact";
 import Footer from "@/components/footer";
 import BackgroundBeams from "@/components/animations/background-beams";
+import Experience from "@/components/Experience";
 
 export default function Home() {
   return (
@@ -12,6 +13,7 @@ export default function Home() {
    <main className="min-h-screen bg-background">
     <Hero />
     <About />
+    <Experience />
     <SkillsWithLogos />
     <Projects />
     <Contact />

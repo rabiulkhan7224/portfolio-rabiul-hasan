@@ -1,32 +1,58 @@
-"use client"
-import { motion } from 'motion/react';
-import { Badge } from './ui/badge';
-import { Card, CardContent } from './ui/card';
-import { Mail, MapPin, Phone } from 'lucide-react';
-import { Spotlight } from './animations/spotlight';
-import { MovingBorder } from './animations/moving-border';
-import Image from 'next/image';
-import BackgroundBeams from './animations/background-beams';
-import { PointerHighlight } from './ui/pointer-highlight';
-import GithubStat from './githubStat';
+"use client";
+
+import { motion } from "framer-motion";
+import { Badge } from "@/components/ui/badge";
+import { Card, CardContent } from "@/components/ui/card";
+import { Mail, Phone, Clock, MapPin } from "lucide-react";
+import { Spotlight } from "@/components/animations/spotlight";
+import { MovingBorder } from "@/components/animations/moving-border";
+import Image from "next/image";
+import GithubStat from "@/components/githubStat";
+import { PointerHighlight } from "@/components/ui/pointer-highlight";
+import { useState, useEffect } from "react";
+
 export default function About() {
+  const [currentTime, setCurrentTime] = useState("");
+
+  // Live Bangladesh Time (UTC+6)
+  useEffect(() => {
+    const updateTime = () => {
+      const bdTime = new Date().toLocaleString("en-US", {
+        timeZone: "Asia/Dhaka",
+        weekday: "long",
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+        hour: "2-digit",
+        minute: "2-digit",
+        second: "2-digit",
+        timeZoneName: "short",
+      });
+      setCurrentTime(bdTime);
+    };
+
+    updateTime();
+    const interval = setInterval(updateTime, 1000);
+    return () => clearInterval(interval);
+  }, []);
+
   const container = {
     hidden: { opacity: 0 },
     show: {
       opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-      },
+      transition: { staggerChildren: 0.2 },
     },
-  }
+  };
+
   const item = {
     hidden: { opacity: 0, y: 20 },
     show: { opacity: 1, y: 0, transition: { duration: 0.8 } },
-  }
-  return (
-    <section id="about" className="py-20 bg-muted/30 ">
+  };
 
+  return (
+    <section id="about" className="py-20 bg-muted/30">
       <div className="container mx-auto px-4">
+        {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -41,7 +67,8 @@ export default function About() {
           <div className="w-20 h-1 bg-primary mx-auto"></div>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-12 items-start">
+          {/* Left: Image */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -50,71 +77,107 @@ export default function About() {
           >
             <Spotlight className="relative">
               <MovingBorder className="h-full w-full">
-                <div className="relative aspect-square rounded-xl overflow-hidden border border-border">
+                <div className="relative aspect-square rounded-xl overflow-hidden border border-border shadow-2xl">
                   <Image
                     src="/about-me.jpg"
                     alt="Md Rabiul Hasan"
                     className="w-full h-full object-cover"
                     width={500}
                     height={500}
+                    priority
                   />
                 </div>
               </MovingBorder>
             </Spotlight>
           </motion.div>
 
-          <motion.div variants={container} initial="hidden" whileInView="show" viewport={{ once: true }}>
-            <motion.h3 variants={item} className="text-2xl font-bold mb-4">
+          {/* Right: Content */}
+          <motion.div
+            variants={container}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true }}
+            className="space-y-6"
+          >
+            {/* Title */}
+            <motion.h3 variants={item} className="text-2xl font-bold">
               MERN Stack Developer
             </motion.h3>
 
-            <motion.div variants={item} className="text-muted-foreground mb-6 tracking-tight">
-              I'm a MERN Stack Developer specializing in<PointerHighlight rectangleClassName="bg-green-100 dark:bg-green-900 border-green-300 dark:border-green-700 leading-loose"pointerClassName="text-green-500 h-3 w-3"containerClassName="inline-block"><span className="relative z-10">React.js, Node.js, Express.js and MongoDB,</span></PointerHighlight> with foundational
-              knowledge of <PointerHighlight
-            rectangleClassName="bg-blue-100 dark:bg-blue-900 border-blue-300 dark:border-blue-700 leading-loose"
-            pointerClassName="text-blue-500 h-3 w-3"
-            containerClassName="inline-block mx-1"
-          >
-            <span className="relative z-10">TypeScript </span>
-          </PointerHighlight> for building type-safe applications. I have proven ability to develop full-stack
-              solutions with secure authentication, RESTful APIs, and optimized performance. I'm passionate about
-              writing clean, maintainable code and collaborating in agile teams.
+            {/* Career Objective */}
+            <motion.div variants={item} className="text-muted-foreground leading-relaxed">
+              MERN Stack Developer specializing in{" "}
+              <PointerHighlight
+                rectangleClassName="bg-green-100 dark:bg-green-900 border-green-300 dark:border-green-700"
+                pointerClassName="text-green-500 h-3 w-3"
+                containerClassName="inline-block"
+              >
+                <span className="relative z-10">
+                  React.js, Next.js, Node.js, Express.js, and MongoDB
+                </span>
+              </PointerHighlight>
+              , with a strong foundation in{" "}
+              <PointerHighlight
+                rectangleClassName="bg-blue-100 dark:bg-blue-900 border-blue-300 dark:border-blue-700"
+                pointerClassName="text-blue-500 h-3 w-3"
+                containerClassName="inline-block mx-1"
+              >
+                <span className="relative z-10">TypeScript</span>
+              </PointerHighlight>{" "}
+              for building scalable and type-safe applications.
+              <br />
+              
+              Experienced in developing secure full-stack solutions with{" "}
+              <strong>JWT authentication</strong>, <strong>RESTful APIs</strong>, and{" "}
+              <strong>real-time functionality using WebSockets</strong>. Skilled in optimizing{" "}
+              <strong>Next.js applications for SEO</strong>, implementing{" "}
+              <strong>CI/CD pipelines using GitHub Actions</strong>, and deploying on{" "}
+              <strong>VPS and Google Cloud Platform</strong>.
             </motion.div>
 
-            <motion.div variants={item} className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
-              {/* <Card className="overflow-hidden border-none shadow-lg hover:shadow-xl transition-all duration-300">
-                <CardContent className="p-4 flex items-center gap-3">
-                  <MapPin className="text-primary h-5 w-5" />
-                  <span>Comilla, Bangladesh</span>
-                </CardContent>
-              </Card> */}
+            {/* Live Info */}
+            <motion.div variants={item} className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              
 
-              <Card className="overflow-hidden border-none shadow-lg hover:shadow-xl transition-all duration-300">
+              <Card className="border-none shadow-lg hover:shadow-xl transition-all duration-300">
                 <CardContent className="p-4 flex items-center gap-3">
-                  <Mail className="text-primary h-5 w-5" />
-                  <span className="truncate">mdrabiulkhanbabo@gmail.com</span>
+                  <Mail className="h-5 w-5 text-primary" />
+                  <span className="truncate text-sm">mdrabiulkhanbabo@gmail.com</span>
                 </CardContent>
               </Card>
 
-              <Card className="overflow-hidden border-none shadow-lg hover:shadow-xl transition-all duration-300">
+              <Card className="border-none shadow-lg hover:shadow-xl transition-all duration-300">
                 <CardContent className="p-4 flex items-center gap-3">
-                  <Phone className="text-primary h-5 w-5" />
-                  <span>+8801779893574</span>
+                  <Phone className="h-5 w-5 text-primary" />
+                  <span className="text-sm">+8801779893574</span>
                 </CardContent>
               </Card>
             </motion.div>
 
-            <GithubStat />
+            {/* GitHub Stats */}
+            <motion.div variants={item}>
+              <GithubStat />
+            </motion.div>
 
+            {/* Skills */}
+           
+
+            {/* Soft Skills */}
             <motion.div variants={item} className="flex flex-wrap gap-2">
-              <Badge className="px-3 py-1 hover:bg-primary/20 transition-colors duration-300">Problem-solving</Badge>
-              <Badge className="px-3 py-1 hover:bg-primary/20 transition-colors duration-300">Team collaboration</Badge>
-              <Badge className="px-3 py-1 hover:bg-primary/20 transition-colors duration-300">Time management</Badge>
-              <Badge className="px-3 py-1 hover:bg-primary/20 transition-colors duration-300">Adaptability</Badge>
+              {["Problem-solving", "Team collaboration", "Time management", "Adaptability"].map(
+                (skill) => (
+                  <Badge
+                    key={skill}
+                    className="px-3 py-1 hover:bg-primary/20 transition-colors duration-300"
+                  >
+                    {skill}
+                  </Badge>
+                )
+              )}
             </motion.div>
           </motion.div>
         </div>
       </div>
     </section>
-  )
+  );
 }
