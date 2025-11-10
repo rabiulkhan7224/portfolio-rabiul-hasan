@@ -1,7 +1,8 @@
-"use client"
-import { ArrowDown, Github, LinkedinIcon } from "lucide-react";
+"use client";
+
+import { ArrowDown, Github, Linkedin, Download } from "lucide-react";
 import Image from "next/image";
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
 import BackgroundBeams from "./animations/background-beams";
 import { AnimatedText, FadeUp, MouseRotate3D, ScaleOnHover } from "./animations/motion-animations";
 import { WavyBackground } from "./animations/wavy-background";
@@ -10,19 +11,44 @@ import { Button } from "./ui/button";
 import Link from "next/link";
 
 export default function Hero() {
+  const aboutRef = useRef<HTMLDivElement>(null);
+  const [currentTime, setCurrentTime] = useState("");
 
-  const aboutRef = useRef<HTMLDivElement>(null)
+  // Live Bangladesh Time (UTC+6)
+  useEffect(() => {
+    const updateTime = () => {
+      const now = new Date();
+      const bdTime = new Date(now.toLocaleString("en-US", { timeZone: "Asia/Dhaka" }));
+      const formatted = bdTime.toLocaleString("en-US", {
+        weekday: "long",
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+        hour: "2-digit",
+        minute: "2-digit",
+        second: "2-digit",
+        timeZoneName: "short",
+      });
+      setCurrentTime(formatted);
+    };
+
+    updateTime();
+    const interval = setInterval(updateTime, 1000);
+    return () => clearInterval(interval);
+  }, []);
 
   const scrollToAbout = () => {
-    aboutRef.current?.scrollIntoView({ behavior: "smooth" })
-  }
+    aboutRef.current?.scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
     <section className="relative h-screen  flex items-center justify-center overflow-hidden">
-     
       <BackgroundBeams className="absolute inset-0" />
-      <div className="container mx-auto px-4 z-10">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-8">
-           <FadeUp className="flex-1" delay={0.2}>
+
+      <div className="container mx-auto p-4 z-10">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-8 lg:gap-12">
+          {/* Left: Text Content */}
+          <FadeUp className="flex-1 text-center md:text-left" delay={0.2}>
             <div className="text-xl md:text-2xl font-medium text-primary mb-2">
               <AnimatedText text="Hello, I'm" />
             </div>
@@ -39,28 +65,39 @@ export default function Hero() {
               <AnimatedText text="MERN Stack Developer" delay={0.8} />
             </h3>
 
-            <FadeUp delay={1.1} className="text-lg mb-8 max-w-lg text-muted-foreground">
-              Specializing in React.js, Node.js, Express.js and MongoDB, with foundational knowledge of TypeScript for
-              building type-safe applications.
+            <FadeUp delay={1.1} className="text-lg mb-6 max-w-lg text-muted-foreground leading-relaxed">
+              Specializing in <strong className="text-blue-400">React.js</strong>,{" "}
+              <strong className="text-blue-400">Node.js</strong>,{" "}
+              <strong className="text-blue-400">Express.js</strong>, and{" "}
+              <strong className="text-blue-400">MongoDB</strong>, with strong expertise in{" "}
+              <strong className="text-purple-400">TypeScript</strong> and{" "}
+              <strong className="text-green-400">Next.js</strong> for building type-safe, scalable, and performant applications.
             </FadeUp>
 
-            <FadeUp delay={1.4} className="flex flex-wrap items-center gap-4">
+            {/* Live Info: Time + Country */}
+            <FadeUp delay={1.3} className="mb-2 text-sm text-gray-300 space-y-1">
+              <div className="flex items-center justify-center md:justify-start gap-2">
+                <span className="text-yellow-400">Current time:</span>
+                <span className="font-mono text-xs md:text-sm">{currentTime}</span>
+              </div>
+              
+            </FadeUp>
+
+            {/* Action Buttons */}
+            <FadeUp delay={1.4} className="flex flex-wrap justify-center md:justify-start items-center gap-4">
               <WavyBackground className="p-2 rounded-lg">
                 <ScaleOnHover>
-                  <Link
-                      href="https://drive.google.com/file/d/1TwQ-9Y1lyrx9ikhf1sIvHSj3oLZh_m2Q/view?usp=drive_link"
+                  <Button size="lg" className="gap-2" asChild>
+                    <Link
+                      href="https://drive.google.com/uc?export=download&id=1TwQ-9Y1lyrx9ikhf1sIvHSj3oLZh_m2Q"
                       target="_blank"
                       rel="noopener noreferrer"
-                      download
-                      className="flex items-center gap-2">
-                    <Button size="lg" className="gap-2 relative z-10">
-                  
-                    
-                    
-                    Download CV
+                      download="Md_Rabiul_Hasan_CV.pdf"
+                    >
+                      <Download className="h-5 w-5" />
+                      Download CV
+                    </Link>
                   </Button>
-                      </Link>
-                 
                 </ScaleOnHover>
               </WavyBackground>
 
@@ -70,16 +107,18 @@ export default function Hero() {
                 </Button>
               </ScaleOnHover>
             </FadeUp>
-    
-            <FadeUp delay={1.7} className="flex gap-4 mt-8">
+
+            {/* Social Links */}
+            <FadeUp delay={1.7} className="flex justify-center md:justify-start gap-6 mt-8">
               <ScaleOnHover>
                 <Link
                   href="https://github.com/rabiulkhan7224"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-muted-foreground hover:text-primary transition-colors"
+                  className="text-muted-foreground hover:text-primary transition-all duration-300"
+                  aria-label="GitHub Profile"
                 >
-                  <Github className="h-6 w-6" />
+                  <Github className="h-7 w-7" />
                 </Link>
               </ScaleOnHover>
               <ScaleOnHover>
@@ -87,46 +126,49 @@ export default function Hero() {
                   href="https://www.linkedin.com/in/md-rabiul-hasan7224"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-muted-foreground hover:text-primary transition-colors"
+                  className="text-muted-foreground hover:text-primary transition-all duration-300"
+                  aria-label="LinkedIn Profile"
                 >
-                  <LinkedinIcon className="h-6 w-6" />
+                  <Linkedin className="h-7 w-7" />
                 </Link>
               </ScaleOnHover>
             </FadeUp>
           </FadeUp>
 
-         <FadeUp className="flex-1 flex justify-center" delay={0.5}>
+          {/* Right: 3D Image */}
+          <FadeUp className="flex-1 flex justify-center" delay={0.5}>
             <MouseRotate3D intensity={7}>
-              <CardContainer className="w-64 h-64 md:w-80 md:h-80">
-                <CardBody className="relative group/card rounded-full overflow-hidden border-4 border-primary/20">
-                  <CardItem translateZ={50}>
-                    <div className="absolute inset-0 bg-gradient-to-tr from-primary/20 to-transparent" />
+              <CardContainer className="w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96">
+                <CardBody className="relative group/card rounded-full overflow-hidden border-4 border-primary/30 shadow-2xl">
+                  <CardItem translateZ={60} className="w-full h-full">
+                    <div className="absolute inset-0 bg-gradient-to-tr from-primary/30 via-transparent to-purple-600/20 opacity-60 group-hover/card:opacity-80 transition-opacity" />
                     <Image
                       src="/rabiul.jpg"
                       alt="Md Rabiul Hasan"
-                      width={320}
-                      height={320}
-                      className="w-full h-full object-cover"
-                    
+                      width={400}
+                      height={400}
+                      className="w-full h-full object-cover rounded-full"
+                      priority
                     />
                   </CardItem>
                 </CardBody>
               </CardContainer>
             </MouseRotate3D>
           </FadeUp>
-
-         {/* image section */}
-
         </div>
       </div>
-       <FadeUp className="absolute bottom-10 left-1/2 transform -translate-x-1/2" delay={2}>
+
+      {/* Scroll Indicator */}
+      <FadeUp className="absolute bottom-10 left-1/2 transform -translate-x-1/2" delay={2}>
         <ScaleOnHover>
-          <Button variant="ghost" size="icon" onClick={scrollToAbout}>
-            <ArrowDown className="h-6 w-6" />
+          <Button variant="ghost" size="icon" onClick={scrollToAbout} aria-label="Scroll to About">
+            <ArrowDown className="h-6 w-6 animate-bounce" />
           </Button>
         </ScaleOnHover>
       </FadeUp>
+
+      {/* About Section Anchor */}
       <div ref={aboutRef} className="absolute bottom-0 left-0 right-0 h-1" />
     </section>
-  )
+  );
 }
