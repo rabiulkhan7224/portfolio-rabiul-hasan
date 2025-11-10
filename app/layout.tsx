@@ -107,8 +107,8 @@ export const metadata: Metadata = {
   },
 
   // ———————— Verification ————————
-  verification: {
-    google: "your-google-site-verification",
+ verification: {
+    google: "CrraoH9JKlzfsqGeiGn3-WhnM5rV4ecC-U2gHbAAsew",
   },
 };
 
