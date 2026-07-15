@@ -55,12 +55,12 @@ export default function Hero() {
       <div className="container mx-auto p-4 z-10">
         <div className="flex flex-col md:flex-row items-center justify-between gap-8 lg:gap-12">
           {/* Left: Text Content */}
-          <FadeUp className="flex-1 text-center md:text-left" delay={0.2}>
+          <FadeUp className="flex-1  md:text-left" delay={0.2}>
             <div className="text-xl md:text-2xl font-medium text-primary mb-2">
               <AnimatedText text="Hello, I'm" />
             </div>
 
-            <h1 className="text-4xl md:text-6xl font-bold mb-4">
+            <h1 className="text-3xl md:text-6xl font-bold md:mb-4">
               <AnimatedText
                 text="Md Rabiul Hasan"
                 className="bg-clip-text text-transparent bg-gradient-to-r from-primary to-purple-600"
@@ -68,20 +68,25 @@ export default function Hero() {
               />
             </h1>
 
-            <h3 className="text-2xl md:text-3xl font-semibold mb-6 text-muted-foreground">
+            <h3 className="text-xl md:text-3xl font-semibold md:mb-6  text-muted-foreground">
               <AnimatedText text="Full Stack Developer" delay={0.8} />
             </h3>
 
             <FadeUp
               delay={1.1}
-              className="text-lg mb-6 max-w-lg text-muted-foreground leading-relaxed"
+              className="text-sm md:text-lg mb-2 max-w-lg text-muted-foreground leading-relaxed"
             >
               Full Stack Developer with 1+ years of experience architecting and
-              deploying high-performance web applications — React.js, Next.js,
-              TypeScript, Node.js, Express.js, MongoDB, PostgreSQL, and Prisma.
-              I build SEO-optimized, scalable platforms with integrated AI
-              functionality and real-time communication, and care about clean
-              architecture, type safety, and 99.9% uptime.
+              deploying high-performance web applications —{" "}
+              <strong className="text-blue-400">React.js,</strong>{" "}
+              <strong className="text-green-400"> Next.js,</strong>
+              <strong className="text-blue-400">TypeScript,</strong>{" "}
+              <strong>Node.js,</strong>
+              <strong className="text-red-400"> Nest.js</strong>, Express.js,
+              MongoDB, <strong className="text-blue-400">PostgreSQL,</strong>{" "}
+              and Prisma. I build SEO-optimized, scalable platforms with
+              integrated AI functionality and real-time communication, and care
+              about clean architecture, type safety, and 99.9% uptime.
             </FadeUp>
 
             {/* Live Info: Time + Country */}

@@ -115,7 +115,7 @@ const SkillsWithLogos = () => {
         { name: "Framer Motion", logo: "/motion.svg" },
         {
           name: "Zustand",
-          logo: "https://img.icons8.com/?size=100&id=1g0k3X6q4r5A&format=png&color=000000",
+          logo: "/zustand.jpeg",
         },
 
         {

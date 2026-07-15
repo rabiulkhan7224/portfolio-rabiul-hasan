@@ -109,8 +109,16 @@ export default function About() {
               variants={item}
               className="text-muted-foreground leading-relaxed"
             >
-              Full Stack Developer with 1+ years of experience architecting and
-              deploying high-performance web applications —{" "}
+              <PointerHighlight
+                rectangleClassName="bg-blue-100 dark:bg-blue-900 border-blue-300 dark:border-blue-700"
+                pointerClassName="text-blue-500 h-3 w-3"
+                containerClassName="inline-block"
+              >
+                <span className="relative z-10">
+                  Full Stack Developer with 1+ years of experience
+                </span>
+              </PointerHighlight>{" "}
+              architecting and deploying high-performance web applications —{" "}
               <PointerHighlight
                 rectangleClassName="bg-green-100 dark:bg-green-900 border-green-300 dark:border-green-700"
                 pointerClassName="text-green-500 h-3 w-3"
