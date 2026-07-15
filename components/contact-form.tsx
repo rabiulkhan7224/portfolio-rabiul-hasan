@@ -1,31 +1,42 @@
-"use client"
+"use client";
 
-import { useState, useCallback } from "react"
-import { useForm } from "react-hook-form"
-import { zodResolver } from "@hookform/resolvers/zod"
-import { motion } from "framer-motion"
-import { Loader2, Send } from "lucide-react"
+import { useState, useCallback } from "react";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { motion } from "framer-motion";
+import { Loader2, Send } from "lucide-react";
 
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Textarea } from "@/components/ui/textarea"
-import { submitContactForm, type ContactFormValues } from "@/lib/actions"
-import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form"
-import { z } from "zod"
-import { memo } from "react"
-import { toast } from "sonner"
-import { ScaleOnHover } from "./animations/motion-animations"
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { submitContactForm, type ContactFormValues } from "@/lib/actions";
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "@/components/ui/form";
+import { z } from "zod";
+import { memo } from "react";
+import { toast } from "sonner";
+import { ScaleOnHover } from "./animations/motion-animations";
 
 // Define the schema for form validation
 const ContactFormSchema = z.object({
   name: z.string().min(2, { message: "Name must be at least 2 characters" }),
   email: z.string().email({ message: "Please enter a valid email address" }),
-  subject: z.string().min(5, { message: "Subject must be at least 5 characters" }),
-  message: z.string().min(10, { message: "Message must be at least 10 characters" }),
-})
+  subject: z
+    .string()
+    .min(5, { message: "Subject must be at least 5 characters" }),
+  message: z
+    .string()
+    .min(10, { message: "Message must be at least 10 characters" }),
+});
 
 export const ContactForm = memo(function ContactForm() {
-  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   // Initialize form with react-hook-form
   const form = useForm<ContactFormValues>({
@@ -36,38 +47,36 @@ export const ContactForm = memo(function ContactForm() {
       subject: "",
       message: "",
     },
-  })
+  });
 
   // Memoize the submit handler to prevent recreation on each render
   const onSubmit = useCallback(
     async (data: ContactFormValues) => {
-      setIsSubmitting(true)
+      setIsSubmitting(true);
 
       try {
-        const response = await submitContactForm(data)
+        const response = await submitContactForm(data);
 
         if (response.success) {
-        
-        toast("Success!", {
-          description: response.message,})
-          form.reset()
+          toast("Success!", {
+            description: response.message,
+          });
+          form.reset();
         } else {
-        
-            toast("Error", {
-                description: response.message,
-            })
+          toast("Error", {
+            description: response.message,
+          });
         }
       } catch (error) {
-        
         toast("Error", {
-            description: "Something went wrong. Please try again later.",
-        })
+          description: "Something went wrong. Please try again later.",
+        });
       } finally {
-        setIsSubmitting(false)
+        setIsSubmitting(false);
       }
     },
     [form, toast],
-  )
+  );
 
   return (
     <Form {...form}>
@@ -80,7 +89,11 @@ export const ContactForm = memo(function ContactForm() {
               <FormItem>
                 <FormLabel>Name</FormLabel>
                 <FormControl>
-                  <Input placeholder="Your name" className="bg-muted/50" {...field} />
+                  <Input
+                    placeholder="Your name"
+                    className="bg-muted/50 "
+                    {...field}
+                  />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -94,7 +107,12 @@ export const ContactForm = memo(function ContactForm() {
               <FormItem>
                 <FormLabel>Email</FormLabel>
                 <FormControl>
-                  <Input type="email" placeholder="Your email" className="bg-muted/50" {...field} />
+                  <Input
+                    type="email"
+                    placeholder="Your email"
+                    className="bg-muted/50"
+                    {...field}
+                  />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -109,7 +127,11 @@ export const ContactForm = memo(function ContactForm() {
             <FormItem>
               <FormLabel>Subject</FormLabel>
               <FormControl>
-                <Input placeholder="Subject" className="bg-muted/50" {...field} />
+                <Input
+                  placeholder="Subject"
+                  className="bg-muted/50"
+                  {...field}
+                />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -123,7 +145,11 @@ export const ContactForm = memo(function ContactForm() {
             <FormItem>
               <FormLabel>Message</FormLabel>
               <FormControl>
-                <Textarea placeholder="Your message" className="min-h-[120px] bg-muted/50" {...field} />
+                <Textarea
+                  placeholder="Your message"
+                  className="min-h-[120px] bg-muted/50"
+                  {...field}
+                />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -131,7 +157,11 @@ export const ContactForm = memo(function ContactForm() {
         />
 
         <ScaleOnHover>
-          <Button type="submit" className="w-full gap-2" disabled={isSubmitting}>
+          <Button
+            type="submit"
+            className="w-full gap-2"
+            disabled={isSubmitting}
+          >
             {isSubmitting ? (
               <>
                 <Loader2 className="h-4 w-4 animate-spin" />
@@ -157,5 +187,5 @@ export const ContactForm = memo(function ContactForm() {
         )}
       </form>
     </Form>
-  )
-})
+  );
+});

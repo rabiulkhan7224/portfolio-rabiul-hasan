@@ -1,10 +1,8 @@
-# 🌐 Md Rabiul Hasan | MERN Stack Developer Portfolio
+# 🌐 Md Rabiul Hasan | Full Stack Developer Portfolio
 
-A modern, animated, and fully responsive **MERN Stack Developer Portfolio Website** built with **Next.js**, **Tailwind CSS**, and **Framer Motion** to showcase projects, skills, and experience. Designed to impress recruiters and clients with a smooth user experience, rich interactivity, and elegant UI components.
+A modern, animated, and fully responsive **Full Stack Developer Portfolio Website** built with **Next.js**, **Tailwind CSS**, and **Framer Motion** to showcase projects, skills, and experience. Designed to impress recruiters and clients with a smooth user experience, rich interactivity, and elegant UI components.
 
 ![Preview of Md Rabiul Hasan Portfolio](https://res.cloudinary.com/dbzzdvrmu/image/upload/w_1000,ar_16:9,c_fill,g_auto,e_sharpen/v1747848450/Screenshot_2025-05-21_232212_qv6av4.png)
-
-
 
 ## 🚀 Live Demo
 
@@ -16,9 +14,10 @@ A modern, animated, and fully responsive **MERN Stack Developer Portfolio Websit
 
 ## 🧑‍💻 About Me
 
-Hello! I’m **Md Rabiul Hasan**, a passionate **MERN Stack Developer** from Comilla, Bangladesh. I specialize in **React.js**, **Node.js**, **Express.js**, and **MongoDB**, with foundational experience in **TypeScript** for type-safe applications.
+Hello! I’m **Md Rabiul Hasan**, a passionate **Full Stack Developer** from Comilla, Bangladesh. I specialize in **React.js**, **Node.js**, **Express.js**, and **MongoDB**, with foundational experience in **TypeScript** for type-safe applications.
 
 I focus on:
+
 - Writing clean, maintainable code
 - Building full-stack applications with secure authentication and REST APIs
 - Agile development and collaboration
@@ -70,6 +69,7 @@ I focus on:
 ## 💼 Featured Projects
 
 ### 🩺 Medical Camp Management System (MCMS)
+
 > Platform for organizing medical camps with authentication, payments, and admin dashboard.
 
 🔗 [Live](https://medicamps.netlify.app) • [Client Code](#) • [Server Code](#)  
@@ -78,6 +78,7 @@ I focus on:
 ---
 
 ### 🚗 Car Rental System
+
 > Car rental booking app with real-time availability and admin controls.
 
 🔗 [Live](https://car-rent-a11-15.netlify.app) • [Client Code](#) • [Server Code](#)  
@@ -97,9 +98,11 @@ I focus on:
 ## 🧪 How to Use
 
 ### 1. Clone and Setup
+
 ```bash
 git clone https://github.com/rabiulkhan7224/portfolio-rabiul-hasan.git
 cd rabiul-portfolio
 npm install
 npm run dev
 
+```

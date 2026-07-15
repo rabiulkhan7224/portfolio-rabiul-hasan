@@ -10,19 +10,18 @@ import Experience from "@/components/Experience";
 export default function Home() {
   return (
     <>
-   <main className="min-h-screen bg-background">
-    <Hero />
-    <About />
-    <Experience />
-    <SkillsWithLogos />
-    <Projects />
-    <Contact />
-    <Footer />
-    <BackgroundBeams className="absolute inset-0 z-0" />
-    
-   </main>
-    
+      <main className="min-h-screen bg-background">
+        <Hero />
+        <About />
+        <Experience />
+        <SkillsWithLogos />
+        <Projects />
+        <Contact />
+        <Footer />
+
+        <BackgroundBeams className="absolute inset-0 z-0" />
+        <div className="">hello</div>
+      </main>
     </>
   );
 }
-

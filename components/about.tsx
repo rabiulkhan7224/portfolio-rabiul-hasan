@@ -101,58 +101,32 @@ export default function About() {
           >
             {/* Title */}
             <motion.h3 variants={item} className="text-2xl font-bold">
-              MERN Stack Developer
+              Full Stack Developer
             </motion.h3>
 
             {/* Career Objective */}
-            <motion.div variants={item} className="text-muted-foreground leading-relaxed">
-              MERN Stack Developer specializing in{" "}
+            <motion.div
+              variants={item}
+              className="text-muted-foreground leading-relaxed"
+            >
+              Full Stack Developer with 1+ years of experience architecting and
+              deploying high-performance web applications —{" "}
               <PointerHighlight
                 rectangleClassName="bg-green-100 dark:bg-green-900 border-green-300 dark:border-green-700"
                 pointerClassName="text-green-500 h-3 w-3"
                 containerClassName="inline-block"
               >
                 <span className="relative z-10">
-                  React.js, Next.js, Node.js, Express.js, and MongoDB
+                  React.js, Next.js, TypeScript, Node.js, Express.js, Nest.js,
+                  MongoDB, PostgreSQL, and Prisma , typeorm.
                 </span>
               </PointerHighlight>
-              , with a strong foundation in{" "}
-              <PointerHighlight
-                rectangleClassName="bg-blue-100 dark:bg-blue-900 border-blue-300 dark:border-blue-700"
-                pointerClassName="text-blue-500 h-3 w-3"
-                containerClassName="inline-block mx-1"
-              >
-                <span className="relative z-10">TypeScript</span>
-              </PointerHighlight>{" "}
-              for building scalable and type-safe applications.
-              <br />
-              
-              Experienced in developing secure full-stack solutions with{" "}
-              <strong>JWT authentication</strong>, <strong>RESTful APIs</strong>, and{" "}
-              <strong>real-time functionality using WebSockets</strong>. Skilled in optimizing{" "}
-              <strong>Next.js applications for SEO</strong>, implementing{" "}
-              <strong>CI/CD pipelines using GitHub Actions</strong>, and deploying on{" "}
-              <strong>VPS and Google Cloud Platform</strong>.
+              I build SEO-optimized, scalable platforms with integrated AI
+              functionality and real-time communication, and care about clean
+              architecture, type safety, and 99.9% uptime.
             </motion.div>
 
             {/* Live Info */}
-            <motion.div variants={item} className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              
-
-              <Card className="border-none shadow-lg hover:shadow-xl transition-all duration-300">
-                <CardContent className="p-4 flex items-center gap-3">
-                  <Mail className="h-5 w-5 text-primary" />
-                  <span className="truncate text-sm">mdrabiulkhanbabo@gmail.com</span>
-                </CardContent>
-              </Card>
-
-              <Card className="border-none shadow-lg hover:shadow-xl transition-all duration-300">
-                <CardContent className="p-4 flex items-center gap-3">
-                  <Phone className="h-5 w-5 text-primary" />
-                  <span className="text-sm">+8801779893574</span>
-                </CardContent>
-              </Card>
-            </motion.div>
 
             {/* GitHub Stats */}
             <motion.div variants={item}>
@@ -160,20 +134,22 @@ export default function About() {
             </motion.div>
 
             {/* Skills */}
-           
 
             {/* Soft Skills */}
             <motion.div variants={item} className="flex flex-wrap gap-2">
-              {["Problem-solving", "Team collaboration", "Time management", "Adaptability"].map(
-                (skill) => (
-                  <Badge
-                    key={skill}
-                    className="px-3 py-1 hover:bg-primary/20 transition-colors duration-300"
-                  >
-                    {skill}
-                  </Badge>
-                )
-              )}
+              {[
+                "Problem-solving",
+                "Team collaboration",
+                "Time management",
+                "Adaptability",
+              ].map((skill) => (
+                <Badge
+                  key={skill}
+                  className="px-3 py-1 hover:bg-primary/20 transition-colors duration-300"
+                >
+                  {skill}
+                </Badge>
+              ))}
             </motion.div>
           </motion.div>
         </div>

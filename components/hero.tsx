@@ -4,7 +4,12 @@ import { ArrowDown, Github, Linkedin, Download } from "lucide-react";
 import Image from "next/image";
 import { useRef, useState, useEffect } from "react";
 import BackgroundBeams from "./animations/background-beams";
-import { AnimatedText, FadeUp, MouseRotate3D, ScaleOnHover } from "./animations/motion-animations";
+import {
+  AnimatedText,
+  FadeUp,
+  MouseRotate3D,
+  ScaleOnHover,
+} from "./animations/motion-animations";
 import { WavyBackground } from "./animations/wavy-background";
 import { CardBody, CardContainer, CardItem } from "./ui/3d-card";
 import { Button } from "./ui/button";
@@ -18,7 +23,9 @@ export default function Hero() {
   useEffect(() => {
     const updateTime = () => {
       const now = new Date();
-      const bdTime = new Date(now.toLocaleString("en-US", { timeZone: "Asia/Dhaka" }));
+      const bdTime = new Date(
+        now.toLocaleString("en-US", { timeZone: "Asia/Dhaka" }),
+      );
       const formatted = bdTime.toLocaleString("en-US", {
         weekday: "long",
         year: "numeric",
@@ -62,29 +69,39 @@ export default function Hero() {
             </h1>
 
             <h3 className="text-2xl md:text-3xl font-semibold mb-6 text-muted-foreground">
-              <AnimatedText text="MERN Stack Developer" delay={0.8} />
+              <AnimatedText text="Full Stack Developer" delay={0.8} />
             </h3>
 
-            <FadeUp delay={1.1} className="text-lg mb-6 max-w-lg text-muted-foreground leading-relaxed">
-              Specializing in <strong className="text-blue-400">React.js</strong>,{" "}
-              <strong className="text-blue-400">Node.js</strong>,{" "}
-              <strong className="text-blue-400">Express.js</strong>, and{" "}
-              <strong className="text-blue-400">MongoDB</strong>, with strong expertise in{" "}
-              <strong className="text-purple-400">TypeScript</strong> and{" "}
-              <strong className="text-green-400">Next.js</strong> for building type-safe, scalable, and performant applications.
+            <FadeUp
+              delay={1.1}
+              className="text-lg mb-6 max-w-lg text-muted-foreground leading-relaxed"
+            >
+              Full Stack Developer with 1+ years of experience architecting and
+              deploying high-performance web applications — React.js, Next.js,
+              TypeScript, Node.js, Express.js, MongoDB, PostgreSQL, and Prisma.
+              I build SEO-optimized, scalable platforms with integrated AI
+              functionality and real-time communication, and care about clean
+              architecture, type safety, and 99.9% uptime.
             </FadeUp>
 
             {/* Live Info: Time + Country */}
-            <FadeUp delay={1.3} className="mb-2 text-sm text-gray-300 space-y-1">
+            <FadeUp
+              delay={1.3}
+              className="mb-2 text-sm text-gray-300 space-y-1"
+            >
               <div className="flex items-center justify-center md:justify-start gap-2">
                 <span className="text-yellow-400">Current time:</span>
-                <span className="font-mono text-xs md:text-sm">{currentTime}</span>
+                <span className="font-mono text-xs md:text-sm">
+                  {currentTime}
+                </span>
               </div>
-              
             </FadeUp>
 
             {/* Action Buttons */}
-            <FadeUp delay={1.4} className="flex flex-wrap justify-center md:justify-start items-center gap-4">
+            <FadeUp
+              delay={1.4}
+              className="flex flex-wrap justify-center md:justify-start items-center gap-4"
+            >
               <WavyBackground className="p-2 rounded-lg">
                 <ScaleOnHover>
                   <Button size="lg" className="gap-2" asChild>
@@ -102,14 +119,22 @@ export default function Hero() {
               </WavyBackground>
 
               <ScaleOnHover>
-                <Button size="lg" variant="outline" className="gap-2" onClick={scrollToAbout}>
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="gap-2"
+                  onClick={scrollToAbout}
+                >
                   Explore My Work <ArrowDown className="h-4 w-4" />
                 </Button>
               </ScaleOnHover>
             </FadeUp>
 
             {/* Social Links */}
-            <FadeUp delay={1.7} className="flex justify-center md:justify-start gap-6 mt-8">
+            <FadeUp
+              delay={1.7}
+              className="flex justify-center md:justify-start gap-6 mt-8"
+            >
               <ScaleOnHover>
                 <Link
                   href="https://github.com/rabiulkhan7224"
@@ -143,12 +168,12 @@ export default function Hero() {
                   <CardItem translateZ={60} className="w-full h-full">
                     <div className="absolute inset-0 bg-gradient-to-tr from-primary/30 via-transparent to-purple-600/20 opacity-60 group-hover/card:opacity-80 transition-opacity" />
                     <Image
-                      src="/rabiul.jpg"
+                      src="/rabiul-3.jpg"
                       alt="Md Rabiul Hasan"
                       width={400}
                       height={400}
                       className="w-full h-full object-cover rounded-full"
-                      priority
+                      // priority
                     />
                   </CardItem>
                 </CardBody>
@@ -159,9 +184,17 @@ export default function Hero() {
       </div>
 
       {/* Scroll Indicator */}
-      <FadeUp className="absolute bottom-10 left-1/2 transform -translate-x-1/2" delay={2}>
+      <FadeUp
+        className="absolute bottom-10 left-1/2 transform -translate-x-1/2"
+        delay={2}
+      >
         <ScaleOnHover>
-          <Button variant="ghost" size="icon" onClick={scrollToAbout} aria-label="Scroll to About">
+          <Button
+            variant="ghost"
+            size="icon"
+            onClick={scrollToAbout}
+            aria-label="Scroll to About"
+          >
             <ArrowDown className="h-6 w-6 animate-bounce" />
           </Button>
         </ScaleOnHover>

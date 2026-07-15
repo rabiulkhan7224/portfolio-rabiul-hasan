@@ -7,8 +7,6 @@ import { Suspense } from "react";
 import Loading from "./Loading";
 import { Toaster } from "sonner";
 
-
-
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -23,7 +21,7 @@ const geistMono = Geist_Mono({
 // TOP GOOGLE SEARCH KEYWORDS (2025)
 // ——————————————————————————————————————
 const TOP_KEYWORDS = [
-  "MERN Stack Developer",
+  "Full Stack Developer",
   "Next.js Developer",
   "React.js Developer",
   "TypeScript Developer",
@@ -39,10 +37,9 @@ const TOP_KEYWORDS = [
   "SSR ISR SSG Next.js",
   "Portfolio Developer Dhaka",
   "Frontend Developer",
-  
+
   "Freelance Web Developer",
   "MongoDB Node.js Express",
-  
 ];
 
 export const metadata: Metadata = {
@@ -54,7 +51,9 @@ export const metadata: Metadata = {
   description:
     "MERN & Next.js Full Stack Developer from Bangladesh. Expert in React.js, TypeScript, AI integration, real-time apps, e-commerce, and SEO-optimized web apps. Currently at SM Technology, Banasree, Dhaka.",
   keywords: TOP_KEYWORDS,
-  authors: [{ name: "Md Rabiul Hasan", url: "https://md-rabiul-hasan.vercel.app" }],
+  authors: [
+    { name: "Md Rabiul Hasan", url: "https://md-rabiul-hasan.vercel.app" },
+  ],
   creator: "Md Rabiul Hasan",
   publisher: "Md Rabiul Hasan",
 
@@ -107,9 +106,9 @@ export const metadata: Metadata = {
   },
 
   // ———————— Verification ————————
- verification: {
-    google: "CrraoH9JKlzfsqGeiGn3-WhnM5rV4ecC-U2gHbAAsew",
-  },
+  //  verification: {
+  //     google: "CrraoH9JKlzfsqGeiGn3-WhnM5rV4ecC-U2gHbAAsew",
+  //   },
 };
 
 // ———————— Structured Data (JSON-LD) ————————
@@ -154,21 +153,23 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <head>
         {/* ———————— Favicon ———————— */}
-        <link rel="icon" href="/favicon.ico" />
-        <link rel="apple-touch-icon" href="/apple-touch-icon.webp" />
+        {/* <link rel="icon" href="/favicon.ico" />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.webp" /> */}
 
         {/* ———————— Structured Data ———————— */}
-        <script
+        {/* <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
-        />
+        /> */}
 
         {/* ———————— Live BD Time Meta (Optional) ———————— */}
-        <meta name="current-time" content="November 10, 2025 10:00 PM +06" />
-        <meta name="country" content="BD" />
+        {/* <meta name="current-time" content="November 10, 2025 10:00 PM +06" />
+        <meta name="country" content="BD" /> */}
       </head>
 
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+      >
         <ThemeProvider
           attribute="class"
           defaultTheme="system"

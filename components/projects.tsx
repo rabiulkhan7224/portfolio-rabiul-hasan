@@ -2,41 +2,22 @@
 
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import { ExternalLink, Github, ArrowRight, Clock, MapPin } from "lucide-react";
 import { CardContainer, CardBody, CardItem } from "@/components/ui/3d-card";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import BackgroundBeams from "./animations/background-beams";
-import { useState, useEffect } from "react";
 
 export default function Projects() {
-  const [currentTime, setCurrentTime] = useState("");
-
-  // Live Bangladesh Time (UTC+6)
-  useEffect(() => {
-    const updateTime = () => {
-      const bdTime = new Date().toLocaleString("en-US", {
-        timeZone: "Asia/Dhaka",
-        weekday: "long",
-        year: "numeric",
-        month: "long",
-        day: "numeric",
-        hour: "2-digit",
-        minute: "2-digit",
-        second: "2-digit",
-        timeZoneName: "short",
-      });
-      setCurrentTime(bdTime);
-    };
-
-    updateTime();
-    const interval = setInterval(updateTime, 1000);
-    return () => clearInterval(interval);
-  }, []);
-
   const projects = [
-
     {
       title: "Dream Canvas Art",
       description:
@@ -96,12 +77,18 @@ export default function Projects() {
         "Admin dashboard to manage camps, volunteers, and registrations",
         "Payment integration for camp fees and donations",
       ],
-      technologies: ["React.js", "Node.js", "Express.js", "MongoDB", "Tailwind CSS"],
+      technologies: [
+        "React.js",
+        "Node.js",
+        "Express.js",
+        "MongoDB",
+        "Tailwind CSS",
+      ],
       liveLink: "https://medicamps.netlify.app",
       clientRepo: "https://github.com/rabiulkhan7224/medicamps-client",
       serverRepo: "https://github.com/rabiulkhan7224/medicamps-server",
     },
-    
+
     {
       title: "Car Rental System",
       description:
@@ -112,12 +99,17 @@ export default function Projects() {
         "Admin panel for managing cars, users, and reservations",
         "Real-time availability and pricing updates",
       ],
-      technologies: ["React.js", "Node.js", "Express.js", "MongoDB", "Tailwind CSS"],
+      technologies: [
+        "React.js",
+        "Node.js",
+        "Express.js",
+        "MongoDB",
+        "Tailwind CSS",
+      ],
       liveLink: "https://car-rent-a11-15.netlify.app",
       clientRepo: "https://github.com/rabiulkhan7224/car-rent",
       serverRepo: "https://github.com/rabiulkhan7224/car-rent-server",
     },
-    
   ];
 
   const container = {
@@ -134,7 +126,10 @@ export default function Projects() {
   };
 
   return (
-    <section id="projects" className="py-20 bg-muted/30 relative overflow-hidden">
+    <section
+      id="projects"
+      className="py-10 bg-muted/30 relative overflow-hidden"
+    >
       <BackgroundBeams className="absolute inset-0" />
 
       <div className="container mx-auto px-4 relative z-10">
@@ -144,30 +139,15 @@ export default function Projects() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="text-center mb-16"
+          className="text-center mb-5"
         >
           <Badge variant="outline" className="mb-4 px-4 py-1 text-sm">
             My Work
           </Badge>
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Featured Projects</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+            Featured Projects
+          </h2>
           <div className="w-20 h-1 bg-primary mx-auto"></div>
-        </motion.div>
-
-        {/* Live Info */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          className="flex justify-center gap-6 mb-10 text-sm text-muted-foreground"
-        >
-          <div className="flex items-center gap-2">
-            <Clock className="h-4 w-4 text-primary" />
-            <span className="font-mono">{currentTime}</span>
-          </div>
-          <div className="flex items-center gap-2">
-            <MapPin className="h-4 w-4 text-primary" />
-            <span className="font-medium">BD Bangladesh</span>
-          </div>
         </motion.div>
 
         {/* Projects Grid */}
@@ -199,7 +179,9 @@ export default function Projects() {
                 </div>
 
                 <CardHeader className="flex-1">
-                  <CardTitle className="text-2xl font-bold">{project.title}</CardTitle>
+                  <CardTitle className="text-2xl font-bold">
+                    {project.title}
+                  </CardTitle>
                   <CardDescription className="text-base leading-relaxed">
                     {project.description}
                   </CardDescription>
@@ -207,10 +189,15 @@ export default function Projects() {
 
                 <CardContent className="flex-1 space-y-4">
                   <div>
-                    <h4 className="font-semibold mb-2 text-primary">Key Features:</h4>
+                    <h4 className="font-semibold mb-2 text-primary">
+                      Key Features:
+                    </h4>
                     <ul className="space-y-1.5">
                       {project.features.map((feature, i) => (
-                        <li key={i} className="flex items-start gap-2 text-sm text-muted-foreground">
+                        <li
+                          key={i}
+                          className="flex items-start gap-2 text-sm text-muted-foreground"
+                        >
                           <ArrowRight className="h-4 w-4 mt-0.5 text-primary flex-shrink-0" />
                           <span>{feature}</span>
                         </li>
@@ -233,15 +220,28 @@ export default function Projects() {
 
                 <CardFooter className="flex flex-wrap gap-3 pt-4 border-t">
                   <Button asChild size="sm" className="gap-2">
-                    <Link href={project.liveLink} target="_blank" rel="noopener noreferrer">
+                    <Link
+                      href={project.liveLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
                       <ExternalLink className="h-4 w-4" />
                       Live Demo
                     </Link>
                   </Button>
 
                   {project.clientRepo && (
-                    <Button asChild size="sm" variant="outline" className="gap-2">
-                      <Link href={project.clientRepo} target="_blank" rel="noopener noreferrer">
+                    <Button
+                      asChild
+                      size="sm"
+                      variant="outline"
+                      className="gap-2"
+                    >
+                      <Link
+                        href={project.clientRepo}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
                         <Github className="h-4 w-4" />
                         Client
                       </Link>
@@ -249,8 +249,17 @@ export default function Projects() {
                   )}
 
                   {project.serverRepo && (
-                    <Button asChild size="sm" variant="outline" className="gap-2">
-                      <Link href={project.serverRepo} target="_blank" rel="noopener noreferrer">
+                    <Button
+                      asChild
+                      size="sm"
+                      variant="outline"
+                      className="gap-2"
+                    >
+                      <Link
+                        href={project.serverRepo}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
                         <Github className="h-4 w-4" />
                         Server
                       </Link>
@@ -277,7 +286,11 @@ export default function Projects() {
           className="text-center mt-16"
         >
           <Button asChild size="lg" variant="outline" className="gap-2">
-            <a href="https://github.com/rabiulkhan7224" target="_blank" rel="noopener noreferrer">
+            <a
+              href="https://github.com/rabiulkhan7224"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <Github className="h-5 w-5" />
               View More Projects on GitHub
             </a>

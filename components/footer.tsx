@@ -1,14 +1,14 @@
-"use client"
-import { motion } from 'motion/react';
+"use client";
+import { motion } from "motion/react";
 
-import { Button } from "@/components/ui/button"
-import { Github, Linkedin, Mail, ArrowUp } from "lucide-react"
-import { WavyBackground } from './animations/wavy-background';
+import { Button } from "@/components/ui/button";
+import { Github, Linkedin, Mail, ArrowUp } from "lucide-react";
+import { WavyBackground } from "./animations/wavy-background";
 
 export default function Footer() {
   const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" })
-  }
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
 
   return (
     <footer className="relative">
@@ -32,7 +32,9 @@ export default function Footer() {
             className="mb-6"
           >
             <h2 className="text-2xl font-bold">Md Rabiul Hasan</h2>
-            <p className="text-muted-foreground text-center">MERN Stack Developer</p>
+            <p className="text-muted-foreground text-center">
+              Full Stack Developer
+            </p>
           </motion.div>
 
           <motion.div
@@ -43,7 +45,12 @@ export default function Footer() {
             className="flex gap-4 mb-8"
           >
             <Button asChild size="icon" variant="ghost">
-              <a href="https://github.com/rabiulkhan7224" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+              <a
+                href="https://github.com/rabiulkhan7224"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="GitHub"
+              >
                 <Github className="h-5 w-5" />
               </a>
             </Button>
@@ -72,15 +79,21 @@ export default function Footer() {
             className="text-center"
           >
             <p className="text-sm text-muted-foreground mb-4">
-              &copy; {new Date().getFullYear()} Md Rabiul Hasan. All rights reserved.
+              &copy; {new Date().getFullYear()} Md Rabiul Hasan. All rights
+              reserved.
             </p>
 
-            <Button variant="outline" size="icon" onClick={scrollToTop} className="rounded-full">
+            <Button
+              variant="outline"
+              size="icon"
+              onClick={scrollToTop}
+              className="rounded-full"
+            >
               <ArrowUp className="h-4 w-4" />
             </Button>
           </motion.div>
         </div>
       </div>
     </footer>
-  )
+  );
 }

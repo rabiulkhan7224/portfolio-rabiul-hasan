@@ -20,13 +20,13 @@ const GithubStat = () => {
           blockSize={14}
           blockMargin={5}
           fontSize={14}
-        //   theme={{
-        //     level0: "#ebedf0",
-        //     level1: "#9be9a8",
-        //     level2: "#40c463",
-        //     level3: "#30a14e",
-        //     level4: "#216e39",
-        //   }}
+          //   theme={{
+          //     level0: "#ebedf0",
+          //     level1: "#9be9a8",
+          //     level2: "#40c463",
+          //     level3: "#30a14e",
+          //     level4: "#216e39",
+          //   }}
           style={{
             margin: "0 auto",
             maxWidth: "100%",
@@ -37,7 +37,10 @@ const GithubStat = () => {
       {/* Year Selector */}
       <div className="flex justify-center mt-6">
         <div className="inline-flex items-center gap-3">
-          <label htmlFor="year-select" className="text-sm font-medium text-gray-700">
+          <label
+            htmlFor="year-select"
+            className="text-sm font-medium text-gray-700"
+          >
             Year:
           </label>
           <select
